@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import db from "../config/Database.js";
+import { pool, db } from "../config/Database.js";
 import Business from "./Business.js";
 
 

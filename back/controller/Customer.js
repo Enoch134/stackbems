@@ -1,5 +1,5 @@
 import Business from "../model/Business.js";
-import Customer from "../model/customer.js";
+import Customer from "../model/Customer.js";
 import { Sequelize } from "sequelize";
 import jwt from "jsonwebtoken";
 
