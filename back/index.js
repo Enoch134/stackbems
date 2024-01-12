@@ -4,7 +4,7 @@ import cors from "cors"
 import bodyparser from "body-parser";
 import dotenv from "dotenv"
 import flash from "express-flash";
-import db from "./config/Database.js";
+import {pool, db} from "./config/Database.js";
 import User from "./routes/User.js";
 import Role from "./routes/Role.js";
 import Privilege from "./routes/Privilege.js";
