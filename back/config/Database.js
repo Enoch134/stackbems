@@ -1,8 +1,7 @@
 import { Sequelize } from "sequelize";
-import pkg from "pg";
-import { Pool } from "pg";
 import dotenv from "dotenv";
-
+import pkg from "pg";
+const { Pool } = pkg;
 dotenv.config();
 
 const { POSTGRES_URL, NODE_ENV } = process.env;
