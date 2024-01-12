@@ -1,40 +1,39 @@
 import { Sequelize } from "sequelize";
 import pkg from "pg";
+import { Pool } from "pg";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const { Pool } = pkg;
+const { POSTGRES_URL, NODE_ENV } = process.env;
 
-const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL + "?sslmode=require"
-});
+if (!POSTGRES_URL) {
+  throw new Error("Database URL is missing in the environment variables.");
+}
 
-pool.on("error", (err) => {
-  console.error("Database connection error:", err);
-});
-
-pool.on("connect", () => {
-  console.log("Connected to the database (pg)");
-});
-
-pool.on("remove", () => {
-  console.log("Connection removed (pg)");
-});
-
-const db = new Sequelize({
+const sequelizeOptions = {
   dialect: "postgres",
-  dialectModule: pkg, 
+  dialectModule: pkg,
   pool: {
     max: 9,
     min: 0,
     acquire: 30000,
     idle: 10000
   }
-});
+};
 
-db
-  .authenticate()
+if (NODE_ENV === "production") {
+  sequelizeOptions.dialectOptions = {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false 
+    }
+  };
+}
+
+const db = new Sequelize(POSTGRES_URL, sequelizeOptions);
+
+db.authenticate()
   .then(() => {
     console.log("Connected to the database (Sequelize)");
   })
@@ -42,6 +41,6 @@ db
     console.error("Unable to connect to the database (Sequelize):", err);
   });
 
-export { pool, db };
 
 
+export { db };
