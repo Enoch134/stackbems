@@ -16,6 +16,7 @@
     "@heroicons/react": "^2.1.1",
     "@material-tailwind/react": "^2.1.8",
     "@material-ui/core": "latest-version",
+     "@types/react": "latest-version",
     "@mui/icons-material": "^5.15.3",
     "@mui/material": "^5.15.3",
     "@mui/styled-engine-sc": "^6.0.0-alpha.11",
