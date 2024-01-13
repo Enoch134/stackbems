@@ -39,7 +39,7 @@
     "moment": "^2.29.4",
     "papaparse": "^5.4.1",
     "pdfmake": "^0.2.7",
-    "react": "^18.2.0",
+    "react": "^17.0.2",
     "react-bootstrap": "^2.9.1",
     "react-confirm-alert": "^3.0.6",
     "react-dom": "^18.2.0",
