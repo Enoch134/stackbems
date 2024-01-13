@@ -7,6 +7,8 @@ import App from './App';
 import "bulma/css/bulma.css";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSyncExternalStore } from "react-redux";
+
 
 
 
