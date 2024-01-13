@@ -26,7 +26,7 @@ export function CreateCustomer() {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:2024/customer",
+        `${process.env.REACT_APP_URL}/customer`,
         {
           name: name,
           phone: phone,

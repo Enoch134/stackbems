@@ -24,7 +24,7 @@ useEffect(() => {
       };
 
       const response = await axios.get(
-        `http://localhost:2024/category/${id}`,
+        `${process.env.REACT_APP_URL}/category/${id}`,
         config
       );
 
@@ -50,7 +50,7 @@ useEffect(() => {
       const authHeader = `Bearer ${token}`;
 
       const response = await axios.patch(
-        "http://localhost:5000/category",
+        `${process.env.REACT_APP_URL}/category`,
         {
           name: name,
           code: code,
@@ -81,7 +81,7 @@ useEffect(() => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/business", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/business`, {
         headers: {
           Authorization: authHeader
         }

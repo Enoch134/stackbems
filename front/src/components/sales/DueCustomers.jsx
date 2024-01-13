@@ -36,11 +36,14 @@ const [dueCustomer, setdueCustomer] = useState([]);
      const authHeader = `Bearer ${token}`;
 
      try {
-       const response = await axios.get("http://localhost:2024/dueCustomer", {
-         headers: {
-           Authorization: authHeader
+       const response = await axios.get(
+         `${process.env.REACT_APP_URL}/dueCustomer`,
+         {
+           headers: {
+             Authorization: authHeader
+           }
          }
-       });
+       );
        setdueCustomer(response.data);
        console.log(response);
      } catch (error) {

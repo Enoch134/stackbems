@@ -43,7 +43,7 @@ const BulkUpload = () => {
       const token = localStorage.getItem("token");
       const authHeader = `Bearer ${token}`;
       const response = await axios.post(
-        "http://localhost:2024/uploadfile",
+        `${process.env.REACT_APP_URL}/uploadfile`,
         formData,
         {
           headers: {

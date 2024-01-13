@@ -46,7 +46,7 @@ const DashboardDesign = () => {
      const authHeader = `Bearer ${token}`;
 
      try {
-       const response = await axios.get("http://localhost:2024/users", {
+       const response = await axios.get(`${process.env.REACT_APP_URL}/users`, {
          headers: {
            Authorization: authHeader
          }
@@ -68,7 +68,7 @@ const DashboardDesign = () => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/business", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/business`, {
         headers: {
           Authorization: authHeader
         }
@@ -89,7 +89,7 @@ const DashboardDesign = () => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/sale", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/sale`, {
         headers: {
           Authorization: authHeader
         }
@@ -110,7 +110,7 @@ const DashboardDesign = () => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/product", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/product`, {
         headers: {
           Authorization: authHeader
         }
@@ -131,7 +131,7 @@ const DashboardDesign = () => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/customer", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/customer`, {
         headers: {
           Authorization: authHeader
         }
@@ -153,7 +153,7 @@ const DashboardDesign = () => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/expiryProduct", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/expiryProduct`, {
         headers: {
           Authorization: authHeader
         }
@@ -175,7 +175,7 @@ const DashboardDesign = () => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/lowProduct", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/lowProduct`, {
         headers: {
           Authorization: authHeader
         }
@@ -197,7 +197,7 @@ const DashboardDesign = () => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/dueCustomer", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/dueCustomer`, {
         headers: {
           Authorization: authHeader
         }
@@ -219,7 +219,7 @@ const DashboardDesign = () => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/salesPerDay", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/salesPerDay`, {
         headers: {
           Authorization: authHeader
         }

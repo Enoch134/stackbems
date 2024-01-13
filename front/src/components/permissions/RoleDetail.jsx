@@ -18,7 +18,7 @@ export const RoleDetail = ({ id }) => {
         };
 
         const response = await axios.get(
-          `http://localhost:2024/role/${id}`,
+          `${process.env.REACT_APP_URL}/role/${id}`,
           config
         );
 

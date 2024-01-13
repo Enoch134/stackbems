@@ -27,7 +27,7 @@ export const SalesDetail = ({ id }) => {
         };
 
         const response = await axios.get(
-          `http://localhost:2024/sale/${id}`,
+          `${process.env.REACT_APP_URL}/sale/${id}`,
           config
         );
 

@@ -78,7 +78,7 @@ export function EditPrivilege() {
       const authHeader = `Bearer ${token}`;
 
     try {
-      await axios.patch(`http://localhost:2024/privilege/${id}`, {
+      await axios.patch(`${process.env.REACT_APP_URL}/privilege/${id}`, {
         name: privilegeNames,
         roleId: roleId
       }, {
@@ -101,7 +101,7 @@ export function EditPrivilege() {
   const getAllRole = async () => {
     
     try {
-      const response = await axios.get("http://localhost:2024/role");
+      const response = await axios.get(`${process.env.REACT_APP_URL}/role`);
       setRole(response.data);
       console.log(response.data);
     } catch (error) {
@@ -120,7 +120,7 @@ export function EditPrivilege() {
        };
 
        const response = await axios.get(
-         `http://localhost:2024/privilege/${id}`,
+         `${process.env.REACT_APP_URL}/privilege/${id}`,
          config
        );
 

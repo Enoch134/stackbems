@@ -29,7 +29,7 @@ export function SignUp() {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:2024/user",
+        `${process.env.REACT_APP_URL}/user`,
         {
           first_name: first_name,
           last_name: last_name,

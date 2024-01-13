@@ -24,7 +24,7 @@ const [business_type, setBusiness_type] = useState([]);
         };
 
         const response = await axios.get(
-          `http://localhost:2024/business/${id}`,
+          `${process.env.REACT_APP_URL}/business/${id}`,
           config
         );
 

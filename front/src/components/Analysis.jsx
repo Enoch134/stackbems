@@ -50,7 +50,7 @@ const Analysis = ({ id }) => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/business", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/business`, {
         headers: {
           Authorization: authHeader
         }
@@ -71,7 +71,7 @@ const Analysis = ({ id }) => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/sale", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/sale`, {
         headers: {
           Authorization: authHeader
         }
@@ -92,7 +92,7 @@ const Analysis = ({ id }) => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/product", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/product`, {
         headers: {
           Authorization: authHeader
         }
@@ -113,7 +113,7 @@ const Analysis = ({ id }) => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/customer", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/customer`, {
         headers: {
           Authorization: authHeader
         }
@@ -135,7 +135,7 @@ const Analysis = ({ id }) => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/expiryProduct", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/expiryProduct`, {
         headers: {
           Authorization: authHeader
         }
@@ -157,7 +157,7 @@ const Analysis = ({ id }) => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/lowProduct", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/lowProduct`, {
         headers: {
           Authorization: authHeader
         }
@@ -179,7 +179,7 @@ const Analysis = ({ id }) => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/dueCustomer", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/dueCustomer`, {
         headers: {
           Authorization: authHeader
         }
@@ -201,7 +201,7 @@ const Analysis = ({ id }) => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/salesPerDay", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/salesPerDay`, {
         headers: {
           Authorization: authHeader
         }
@@ -225,7 +225,7 @@ const Analysis = ({ id }) => {
     try {
       const token = localStorage.getItem("token");
       const authHeader = `Bearer ${token}`;
-      const response = await axios.get("http://localhost:2024/topSale", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/topSale`, {
         headers: {
           Authorization: authHeader
         }
@@ -246,7 +246,7 @@ const Analysis = ({ id }) => {
     try {
       const token = localStorage.getItem("token");
       const authHeader = `Bearer ${token}`;
-      const response = await axios.get("http://localhost:2024/topSaleYearly", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/topSaleYearly`, {
         headers: {
           Authorization: authHeader
         }
@@ -267,7 +267,7 @@ const Analysis = ({ id }) => {
     try {
       const token = localStorage.getItem("token");
       const authHeader = `Bearer ${token}`;
-      const response = await axios.get("http://localhost:2024/topSalePerDay", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/topSalePerDay`, {
         headers: {
           Authorization: authHeader
         }

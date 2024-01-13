@@ -26,7 +26,7 @@ useEffect(() => {
       };
 
       const response = await axios.get(
-        `http://localhost:2024/customer/${id}`,
+        `${process.env.REACT_APP_URL}/customer/${id}`,
         config
       );
 

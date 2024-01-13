@@ -62,9 +62,9 @@ export function UserRole() {
          const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/role", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/role`, {
         headers: {
-          Authorization:authHeader
+          Authorization: authHeader
         }
       });
       setRole(response.data);
@@ -119,7 +119,7 @@ export function UserRole() {
         try {
           const token = localStorage.getItem("token");
           const response = await fetch(
-            "http://localhost:2024/verify-privileges",
+            `${process.env.REACT_APP_URL}/verify-privileges`,
             {
               method: "GET",
               headers: {

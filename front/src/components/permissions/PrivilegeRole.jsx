@@ -76,7 +76,7 @@ export function PrivilegeRole() {
       const authHeader = `Bearer ${token}`;
 
     try {
-      await axios.post("http://localhost:2024/privilege", {
+      await axios.post(`${process.env.REACT_APP_URL}/privilege`, {
         name: privilegeNames,
         roleId: roleId
       }, {
@@ -100,7 +100,7 @@ export function PrivilegeRole() {
          const token = localStorage.getItem("token");
          const authHeader = `Bearer ${token}`;
        try {
-         const response = await axios.get("http://localhost:2024/role", {
+         const response = await axios.get(`${process.env.REACT_APP_URL}/role`, {
            headers: {
              Authorization:authHeader
            }

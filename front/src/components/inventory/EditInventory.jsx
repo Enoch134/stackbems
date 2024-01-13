@@ -76,12 +76,16 @@ export function EditInventory() {
     formData.append("url", file);
 
     try {
-      await axios.post(`http://localhost:2024/products/${id}`, formData, {
-        headers: {
-          "Content-type": "multipart/form-data",
-          Authorization: authHeader
+      await axios.post(
+        `${process.env.REACT_APP_URL}/products/${id}`,
+        formData,
+        {
+          headers: {
+            "Content-type": "multipart/form-data",
+            Authorization: authHeader
+          }
         }
-      });
+      );
 
       navigate("/product");
     } catch (error) {
@@ -100,7 +104,7 @@ export function EditInventory() {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/product", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/product`, {
         headers: {
           Authorization: authHeader
         }
@@ -121,11 +125,14 @@ export function EditInventory() {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/category", {
-        headers: {
-          Authorization: authHeader
+      const response = await axios.get(
+        `${process.env.REACT_APP_URL}/category`,
+        {
+          headers: {
+            Authorization: authHeader
+          }
         }
-      });
+      );
       setProductCategory(response.data);
       console.log(response);
     } catch (error) {
@@ -142,11 +149,14 @@ export function EditInventory() {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/business", {
-        headers: {
-          Authorization: authHeader
+      const response = await axios.get(
+        `${process.env.REACT_APP_URL}/business`,
+        {
+          headers: {
+            Authorization: authHeader
+          }
         }
-      });
+      );
       setAllBusiness(response.data);
       console.log(response);
     } catch (error) {
@@ -167,7 +177,7 @@ export function EditInventory() {
 
         console.log("ID before conversion:", id);
         const response = await axios.get(
-          `http://localhost:2024/product/${id}`,
+          `${process.env.REACT_APP_URL}/product/${id}`,
           config
         );
 

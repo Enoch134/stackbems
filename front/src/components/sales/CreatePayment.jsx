@@ -23,7 +23,7 @@ export function CreatePayment({ id }) {
          };
 
          const response = await axios.get(
-           `http://localhost:2024/sale/${id}`,
+           `${process.env.REACT_APP_URL}/sale/${id}`,
            config
          );
 
@@ -54,7 +54,7 @@ export function CreatePayment({ id }) {
       const authHeader = `Bearer ${token}`;
 
       await axios.patch(
-        `http://localhost:2024/sales/${id}`,
+        `${process.env.REACT_APP_URL}/sales/${id}`,
         {
           charges_description: charges_description,
           payment_status: payment_status,

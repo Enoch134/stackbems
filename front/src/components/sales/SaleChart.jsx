@@ -24,7 +24,7 @@ function SaleChart() {
       const authHeader = `Bearer ${token}`;
         try {
           const response = await axios.get(
-            "http://localhost:2024/totalSaleYearly",
+            `${process.env.REACT_APP_URL}/totalSaleYearly`,
             {
               headers: {
                 Authorization: authHeader

@@ -20,11 +20,12 @@ export function CreateCategory() {
       const authHeader = `Bearer ${token}`;
 
       const response = await axios.post(
-        "http://localhost:5000/category", {
+        `${process.env.REACT_APP_URL}/category`,
+        {
           name: name,
           code: code,
-          businessId:businessId
-      },
+          businessId: businessId
+        },
         {
           headers: {
             Authorization: authHeader
@@ -51,11 +52,14 @@ export function CreateCategory() {
      const authHeader = `Bearer ${token}`;
 
      try {
-       const response = await axios.get("http://localhost:2024/business", {
-         headers: {
-           Authorization: authHeader
+       const response = await axios.get(
+         `${process.env.REACT_APP_URL}/business`,
+         {
+           headers: {
+             Authorization: authHeader
+           }
          }
-       });
+       );
        setAllBusiness(response.data);
        console.log(response);
      } catch (error) {

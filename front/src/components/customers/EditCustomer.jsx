@@ -34,7 +34,7 @@ useEffect(() => {
       };
 
       const response = await axios.get(
-        `http://localhost:2024/customer/${id}`,
+        `${process.env.REACT_APP_URL}/customer/${id}`,
         config
       );
 
@@ -65,7 +65,7 @@ useEffect(() => {
     e.preventDefault();
     try {
       await axios.patch(
-        `http://localhost:2024/customers/${id}`,
+        `${process.env.REACT_APP_URL}/customers/${id}`,
         {
           name: name,
           phone: phone,

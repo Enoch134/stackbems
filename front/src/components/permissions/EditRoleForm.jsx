@@ -22,14 +22,17 @@ export function EditRoleForm() {
       const token = localStorage.getItem("token");
       const authHeader = `Bearer ${token}`;
     try {
-      await axios.post(`http://localhost:2024/roles/${id}`, {
-        name: name,
-        userId: userId
-      }, {
-        headers: {
-          Authorization:authHeader
+      await axios.post(
+        `${process.env.REACT_APP_URL}/roles/${id}`,
+        {
+          name: name,
+          userId: userId
+        },
+        {
+          headers: {
+            Authorization: authHeader
+          }
         }
-      }
       );
       navigate("/");
     } catch (error) {
@@ -48,7 +51,7 @@ export function EditRoleForm() {
      const authHeader = `Bearer ${token}`;
 
      try {
-       const response = await axios.get("http://localhost:2024/users", {
+       const response = await axios.get(`${process.env.REACT_APP_URL}/users`, {
          headers: {
            Authorization: authHeader
          }
@@ -73,7 +76,7 @@ export function EditRoleForm() {
           };
 
          const response = await axios.get(
-           `http://localhost:2024/role/${id}`,
+           `${process.env.REACT_APP_URL}/role/${id}`,
            config
          );
 

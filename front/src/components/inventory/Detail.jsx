@@ -33,7 +33,7 @@ export const Detail = ({id}) => {
 
       console.log("ID before conversion:", id);
     const response = await axios.get(
-      `http://localhost:2024/product/${id}`,
+      `${process.env.REACT_APP_URL}/product/${id}`,
       config
     );
 

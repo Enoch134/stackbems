@@ -18,7 +18,7 @@ export function PosCards({ addToCart }) {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/product", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/product`, {
         headers: {
           Authorization: authHeader
         }
@@ -60,7 +60,7 @@ const handleProductClick = async (productId) => {
 
     try {
       // Make an API request to update the product quantity in the backend
-      await axios.patch(`http://localhost:2024/reduce/${productId}`);
+      await axios.patch(`${process.env.REACT_APP_URL}/reduce/${productId}`);
 
       // Now refresh the product data after the stock reduction
       getProduct();

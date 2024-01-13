@@ -24,7 +24,7 @@ export function CreateBusiness() {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:2024/business",
+        `${process.env.REACT_APP_URL}/business`,
         {
           name: name,
           phone: phone,
@@ -59,7 +59,7 @@ export function CreateBusiness() {
       const authHeader = `Bearer ${token}`;
 
       try {
-        const response = await axios.get("http://localhost:2024/users", {
+        const response = await axios.get(`${process.env.REACT_APP_URL}/users`, {
           headers: {
             Authorization: authHeader
           }

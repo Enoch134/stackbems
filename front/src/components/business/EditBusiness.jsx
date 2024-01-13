@@ -28,7 +28,7 @@ export function EditBusiness({ id }) {
        };
 
        const response = await axios.get(
-         `http://localhost:2024/business/${id}`,
+         `${process.env.REACT_APP_URL}business/${id}`,
          config
        );
 
@@ -59,7 +59,7 @@ export function EditBusiness({ id }) {
     e.preventDefault();
     try {
       await axios.patch(
-        `http://localhost:2024/businesses/${id}`,
+        `${process.env.REACT_APP_URL}businesses/${id}`,
         {
           name: name,
           phone: phone,
@@ -93,7 +93,7 @@ export function EditBusiness({ id }) {
         const authHeader = `Bearer ${token}`;
 
         try {
-          const response = await axios.get("http://localhost:2024/users", {
+          const response = await axios.get(`${process.env.REACT_APP_URL}users`, {
             headers: {
               Authorization: authHeader
             }

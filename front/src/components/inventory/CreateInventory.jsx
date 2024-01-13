@@ -73,7 +73,7 @@ export function CreateInventory() {
     formData.append("url", file);
 
     try {
-      await axios.post("http://localhost:2024/product", formData, {
+      await axios.post(`${process.env.REACT_APP_URL}/product`, formData, {
         headers: {
           "Content-type": "multipart/form-data",
           Authorization: authHeader
@@ -97,7 +97,7 @@ export function CreateInventory() {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/product", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/product`, {
         headers: {
           Authorization: authHeader
         }
@@ -118,7 +118,7 @@ export function CreateInventory() {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/category", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/category`, {
         headers: {
           Authorization: authHeader
         }
@@ -139,7 +139,7 @@ export function CreateInventory() {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/business", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/business`, {
         headers: {
           Authorization: authHeader
         }
@@ -155,7 +155,7 @@ export function CreateInventory() {
     const fetchProductDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2024/stockavailable/${name}`
+          `${process.env.REACT_APP_URL}/stockavailable/${name}`
         );
         console.log("Backend Response:", response.data);
 

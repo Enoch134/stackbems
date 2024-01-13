@@ -40,7 +40,7 @@ export function EditSales() {
         };
 
         const response = await axios.get(
-          `http://localhost:2024/sale/${id}`,
+          `${process.env.REACT_APP_URL}/sale/${id}`,
           config
         );
 
@@ -80,7 +80,7 @@ export function EditSales() {
       const authHeader = `Bearer ${token}`;
 
       try {
-        const response = await axios.get("http://localhost:2024/customer", {
+        const response = await axios.get(`${process.env.REACT_APP_URL}/customer`, {
           headers: {
             Authorization: authHeader
           }
@@ -176,7 +176,7 @@ export function EditSales() {
       const authHeader = `Bearer ${token}`;
 
       await axios.patch(
-        `http://localhost:2024/sales/${id}`,
+        `${process.env.REACT_APP_URL}/sales/${id}`,
         {
           selected_items: itemsArray,
           sub_total: subTotal,
@@ -256,7 +256,7 @@ export function EditSales() {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/business", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/business`, {
         headers: {
           Authorization: authHeader
         }

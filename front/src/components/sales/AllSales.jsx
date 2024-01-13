@@ -62,7 +62,7 @@ export function AllSales() {
      const authHeader = `Bearer ${token}`;
 
      try {
-       const response = await axios.get("http://localhost:2024/sale", {
+       const response = await axios.get(`${process.env.REACT_APP_URL}/sale`, {
          headers: {
            Authorization: authHeader
          }
@@ -121,7 +121,7 @@ export function AllSales() {
         try {
           const token = localStorage.getItem("token");
           const response = await fetch(
-            "http://localhost:2024/verify-privileges",
+            `${process.env.REACT_APP_URL}/verify-privileges`,
             {
               method: "GET",
               headers: {

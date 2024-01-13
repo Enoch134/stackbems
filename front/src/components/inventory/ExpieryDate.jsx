@@ -37,11 +37,14 @@ export const ExpieryDate = () => {
      const authHeader = `Bearer ${token}`;
 
      try {
-       const response = await axios.get("http://localhost:2024/expiryProduct", {
-         headers: {
-           Authorization: authHeader
+       const response = await axios.get(
+         `${process.env.REACT_APP_URL}/expiryProduct`,
+         {
+           headers: {
+             Authorization: authHeader
+           }
          }
-       });
+       );
        setExpiryProduct(response.data);
        console.log(response);
      } catch (error) {

@@ -33,18 +33,15 @@ export function CreateUser() {
   const saveUser = async (e) => {
      e.preventDefault();
      try {
-       await axios.post(
-         "http://localhost:2024/user",
-         {
-           first_name: first_name,
-           last_name: last_name,
-           email: email,
-           phone: phone,
-           password: password,
-           confPassword: confPassword,
-           business_name:business_name,
-         }
-       );
+       await axios.post(`${process.env.REACT_APP_URL}/user`, {
+         first_name: first_name,
+         last_name: last_name,
+         email: email,
+         phone: phone,
+         password: password,
+         confPassword: confPassword,
+         business_name: business_name
+       });
        navigate("/");
      } catch (error) {
        if (error.response) {

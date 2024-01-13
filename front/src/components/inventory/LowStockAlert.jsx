@@ -29,7 +29,7 @@ export const LowStockAlert = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:2024/lowProduct",
+          `${process.env.REACT_APP_URL}/lowProduct`,
           {
             headers: {
               Authorization: authHeader

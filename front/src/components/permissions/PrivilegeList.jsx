@@ -56,7 +56,7 @@ export function PrivilegeList() {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/privilege", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/privilege`, {
         headers: {
           Authorization: authHeader
         }
@@ -108,7 +108,7 @@ export function PrivilegeList() {
         try {
           const token = localStorage.getItem("token");
           const response = await fetch(
-            "http://localhost:2024/verify-privileges",
+            `${process.env.REACT_APP_URL}/verify-privileges`,
             {
               method: "GET",
               headers: {

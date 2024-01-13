@@ -53,11 +53,14 @@ export function CategoryList() {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/category", {
-        headers: {
-          Authorization: authHeader
+      const response = await axios.get(
+        `${process.env.REACT_APP_URL}/category`,
+        {
+          headers: {
+            Authorization: authHeader
+          }
         }
-      });
+      );
       setProductCategory(response.data);
       console.log(response);
     } catch (error) {

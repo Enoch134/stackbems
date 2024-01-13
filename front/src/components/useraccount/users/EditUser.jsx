@@ -35,7 +35,7 @@ export function EditUser({id}) {
           };
 
           const response = await axios.get(
-            `http://localhost:2024/user/${id}`,
+            `${process.env.REACT_APP_URL}/user/${id}`,
             config
           );
 
@@ -62,14 +62,14 @@ export function EditUser({id}) {
     e.preventDefault();
     try {
       await axios.post(
-        `http://localhost:2024/user/${id}`,
+        `${process.env.REACT_APP_URL}/user/${id}`,
         {
           first_name: first_name,
           last_name: last_name,
           email: email,
           phone: phone,
           password: password,
-          confPassword: confPassword,
+          confPassword: confPassword
         },
         {
           headers: {

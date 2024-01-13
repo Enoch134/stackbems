@@ -42,7 +42,7 @@ export function CreateSales() {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get("http://localhost:2024/customer", {
+      const response = await axios.get(`${process.env.REACT_APP_URL}/customer`, {
         headers: {
           Authorization: authHeader
         }
@@ -140,7 +140,7 @@ useEffect(() => {
       const authHeader = `Bearer ${token}`;
 
       await axios.post(
-        "http://localhost:2024/sale",
+        `${process.env.REACT_APP_URL}/sale`,
         {
           selected_items: itemsArray,
           sub_total: subTotal,
@@ -220,7 +220,7 @@ useEffect(() => {
    const authHeader = `Bearer ${token}`;
 
    try {
-     const response = await axios.get("http://localhost:2024/business", {
+     const response = await axios.get(`${process.env.REACT_APP_URL}/business`, {
        headers: {
          Authorization: authHeader
        }

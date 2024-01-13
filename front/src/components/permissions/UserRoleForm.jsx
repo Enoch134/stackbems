@@ -24,16 +24,16 @@ export function UserRoleForm() {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:2024/role",
+        `${process.env.REACT_APP_URL}/role`,
         {
           name: name,
-          userId: userId,
-        }, {
+          userId: userId
+        },
+        {
           headers: {
-            Authorization:authHeader
+            Authorization: authHeader
           }
         }
-       
       );
       navigate("/");
     } catch (error) {
@@ -53,7 +53,7 @@ export function UserRoleForm() {
       const authHeader = `Bearer ${token}`;
 
       try {
-        const response = await axios.get("http://localhost:2024/users", {
+        const response = await axios.get(`${process.env.REACT_APP_URL}/users`, {
           headers: {
             Authorization: authHeader
           }

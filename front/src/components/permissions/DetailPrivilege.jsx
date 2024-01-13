@@ -18,7 +18,7 @@ export const DetailPrivilege = ({ id }) => {
         };
 
         const response = await axios.get(
-          `http://localhost:2024/privilege/${id}`,
+          `${process.env.REACT_APP_URL}/privilege/${id}`,
           config
         );
 
