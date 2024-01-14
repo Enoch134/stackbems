@@ -17,7 +17,7 @@ import Category from "./routes/Category.js";
 import path from "path"
 import fileUpload from "express-fileupload"
 import { __dirname } from "./dirname.js";
-import { productBulkUpload } from "./BulkUpload.js";
+// import { productBulkUpload } from "./BulkUpload.js";
 
 
 
@@ -46,7 +46,7 @@ app.use(flash());
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:2025"
+    origin: "https://stackbems-fimi.vercel.app"
   })
 );
 
@@ -59,7 +59,7 @@ app.use(Product)
 app.use(Sale)
 app.use(Category)
 app.use(Customer)
-app.use(productBulkUpload)
+// app.use(productBulkUpload)
 
 dotenv.config();
 const PORT = process.env.PORT || 2024;
