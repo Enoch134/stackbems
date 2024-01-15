@@ -191,8 +191,6 @@ export const getProductById = async (req, res) => {
 // };
 
 
-import { v2 as cloudinary } from "cloudinary";
-
 
 export const createProduct = async (req, res) => {
   const {
