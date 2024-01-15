@@ -107,90 +107,6 @@ export const getProductById = async (req, res) => {
   }
 };
 
-// export const createProduct = async (req, res) => {
-//   const {
-//     name,
-//     sell_method,
-//     margin,
-//     price,
-//     cost_price,
-//     stock_available,
-//     new_stock,
-//     tag,
-//     expiry_date,
-//     expiry_date_alert,
-//     batch_no,
-//     tax,
-//     variant_name,
-//     low_stock_alert,
-//     cateId,
-//     businessId,
-//   } = req.body;
-
-//    const token = req.headers.authorization.replace("Bearer ", "");
-//    const secretKey = process.env.JWT_SECRET;
-//    const decodedToken = jwt.verify(token, secretKey);
-//   const business_name = decodedToken.business_name;
-//    const CreatedBy = decodedToken.CreatedBy;
-
-
-//   const stocks = parseInt(stock_available) + parseInt(new_stock);
-
-
-//   if (!req.files || !req.files.url)
-//     return res.status(400).json({ msg: "No File Uploadeds" });
-
-//   console.log(req.files);
-
-//   const file = req.files.url;
-//   if (!file || !file.data) {
-//     return res.status(400).json({ msg: "Invalid File Structure" });
-//   }
-
-//   const fileSize = file.data.length;
-//   const ext = path.extname(file.name);
-//   const fileName = file.md5 + ext;
-//   const url = `${req.protocol}://${req.get("host")}/images/${fileName}`;
-//   const allowedType = [".png", ".jpg", ".jpeg"];
-
-//   if (!allowedType.includes(ext.toLowerCase()))
-//     return res.status(422).json({ msg: "Invalid Images" });
-//   if (fileSize > 20000000)
-//     return res.status(422).json({ msg: "Image must be less than 20 MB" });
-
-//   file.mv(`./public/images/${fileName}`, async (err) => {
-//     if (err) return res.status(500).json({ msg: "File upload error" });
-
-//     try {
-//       await Product.create({
-//         name: name,
-//         sell_method: sell_method,
-//         margin: margin,
-//         price: price,
-//         cost_price: cost_price,
-//         new_stock: new_stock,
-//         stock_available: stocks,
-//         tag: tag,
-//         url: url,
-//         expiry_date: expiry_date,
-//         expiry_date_alert: expiry_date_alert,
-//         batch_no: batch_no,
-//         tax: tax,
-//         variant_name: variant_name,
-//         low_stock_alert: low_stock_alert,
-//         businessId: businessId,
-//         cateId: cateId,
-//         CreatedBy: CreatedBy,
-//         business_name:business_name
-//       });
-//       res.status(201).json({ msg: "Register Successful" });
-//     } catch (error) {
-//       res.status(400).json({ msg: error.message });
-//     }
-//   });
-// };
-
-
 
 export const createProduct = async (req, res) => {
   const {
@@ -253,7 +169,7 @@ export const createProduct = async (req, res) => {
     const cloudinaryResponse = await cloudinary.uploader.upload(
       file.tempFilePath,
       {
-        folder: "demo" 
+        folder: "demo"
       }
     );
 
@@ -284,6 +200,7 @@ export const createProduct = async (req, res) => {
     res.status(400).json({ msg: error.message });
   }
 };
+
 
 
 
