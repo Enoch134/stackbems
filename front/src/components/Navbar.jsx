@@ -28,7 +28,7 @@ const Navbar = ({ onSidebarToggle, isSidebarOpen }) => {
    const fetchUserData = async () => {
      try {
        const token = localStorage.getItem("token");
-       const response = await fetch("http://localhost:2024/verify-privileges", {
+       const response = await fetch("https://stackbems.vercel.app/verify-privileges", {
          method: "GET",
          headers: {
            "Content-Type": "application/json",

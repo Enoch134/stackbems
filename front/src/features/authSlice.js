@@ -15,7 +15,7 @@ const initialState = {
   // LoginUser action
 export const LoginUser = createAsyncThunk('user/LoginUser', async (user, thunkAPI) => {
   try {
-    const response = await axios.post(`${process.env.REACT_APP_URL}/login`, {
+    const response = await axios.post("https://stackbems.vercel.app/login", {
       email: user.email,
       password: user.password,
     });
@@ -52,7 +52,7 @@ export const getMe = createAsyncThunk('user/getMe', async (_, thunkAPI) => {
     const authHeader = `Bearer ${token}`;
     console.log('Auth Header:', authHeader);
 
-    const response = await axios.get(`${process.env.REACT_APP_URL}/me`, {
+    const response = await axios.get("https://stackbems.vercel.app/me", {
       headers: {
         Authorization: authHeader
       }
@@ -73,7 +73,7 @@ export const getMe = createAsyncThunk('user/getMe', async (_, thunkAPI) => {
 export const LogOut = createAsyncThunk("user/LogOut", async (_, thunkAPI) => {
   thunkAPI.dispatch(setToken(null));
   localStorage.removeItem("token");
-  await axios.delete(`${process.env.REACT_APP_URL}/logout`);
+  await axios.delete("https://stackbems.vercel.app/logout");
 });
 
 export const authSlice = createSlice({

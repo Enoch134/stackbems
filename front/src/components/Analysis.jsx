@@ -113,7 +113,7 @@ const Analysis = ({ id }) => {
     const authHeader = `Bearer ${token}`;
 
     try {
-      const response = await axios.get(`${process.env.REACT_APP_URL}/customer`, {
+      const response = await axios.get("https://stackbems.vercel.app/customer", {
         headers: {
           Authorization: authHeader
         }

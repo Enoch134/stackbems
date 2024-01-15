@@ -134,7 +134,7 @@ const Sidebar = () => {
        try {
          const token = localStorage.getItem("token");
          const response = await fetch(
-           "http://localhost:2024/verify-privileges",
+           "https://stackbems.vercel.app/verify-privileges",
            {
              method: "GET",
              headers: {

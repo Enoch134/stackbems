@@ -24,7 +24,7 @@ function SaleChart() {
       const authHeader = `Bearer ${token}`;
         try {
           const response = await axios.get(
-            `${process.env.REACT_APP_URL}/totalSaleYearly`,
+            "https://stackbems.vercel.app/totalSaleYearly",
             {
               headers: {
                 Authorization: authHeader

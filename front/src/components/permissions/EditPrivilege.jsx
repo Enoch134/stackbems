@@ -24,10 +24,10 @@ export function EditPrivilege() {
       delUser: false,
 
       // business
-      createBusiness: false,
-      editBusiness: false,
-      DetailBusiness: false,
-      delBusiness: false,
+      createBusiness: true,
+      editBusiness: true,
+      DetailBusiness: true,
+      delBusiness: true,
 
       // inventory
       createInvent: false,
@@ -98,16 +98,22 @@ export function EditPrivilege() {
     getAllRole();
   }, []);
 
-  const getAllRole = async () => {
+ const getAllRole = async () => {
+         const token = localStorage.getItem("token");
+         const authHeader = `Bearer ${token}`;
+       try {
+         const response = await axios.get(`${process.env.REACT_APP_URL}/role`, {
+           headers: {
+             Authorization:authHeader
+           }
+         });
+         setRole(response.data);
+         console.log(response.data);
+       } catch (error) {
+         console.error("Error:", error);
+       }
+    };
     
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_URL}/role`);
-      setRole(response.data);
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
 
  useEffect(() => {
    const getPrivilegeById = async () => {
