@@ -344,7 +344,7 @@ export function AllSales() {
                     {index + 1}
                   </TableCell>
                   <TableCell component="th" scope="row">
-                    {sale.DateCreated}
+                    {new Date(sale.DateCreated).toLocaleDateString()}
                   </TableCell>
                   <TableCell align="left">{sale.selected_items}</TableCell>
                   <TableCell align="left">{sale.ground_total}</TableCell>
