@@ -21,6 +21,8 @@ export function EditCustomer() {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [gender, setGender] = useState("");
+  const [businessId, setBusinessId] = useState("");
+  const [allBusiness, setAllBusiness] = useState([]);
 
 
 useEffect(() => {
@@ -59,6 +61,31 @@ useEffect(() => {
 }, [id]);
 
 
+    useEffect(() => {
+     getAllBusiness();
+   }, []);
+
+   const getAllBusiness = async () => {
+     const token = localStorage.getItem("token");
+     const authHeader = `Bearer ${token}`;
+
+     try {
+       const response = await axios.get(
+         `${process.env.REACT_APP_URL}/business`,
+         {
+           headers: {
+             Authorization: authHeader
+           }
+         }
+       );
+       setAllBusiness(response.data);
+       console.log(response);
+     } catch (error) {
+       console.error("Error:", error);
+     }
+   };
+
+
   const updateCustomer = async (e) => {
     const token = localStorage.getItem("token");
     const authHeader = `Bearer ${token}`;
@@ -73,7 +100,8 @@ useEffect(() => {
           country: country,
           city: city,
           address: address,
-          gender: gender
+          gender: gender,
+          businessId:businessId
         },
         {
           headers: {
@@ -198,6 +226,28 @@ useEffect(() => {
                         />
                       </div>
                     </div>
+
+
+                      <div className="flex flex-col">
+                          <label className="leading-loose">Gender</label>
+                          <select
+                             value={businessId}
+                             onChange={(e) => setBusinessId(e.target.value)}
+                            className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+                          >
+                            <option value="">business</option>
+                              {allBusiness.map((allBusiness) => (
+                             <option
+                               key={allBusiness.id}
+                               value={allBusiness.id}
+                              >
+                              {allBusiness.name}
+                              </option>
+                              ))}
+                          </select>
+                        </div>
+                      </div>
+                  
                     <div class="pt-4 flex items-center space-x-2">
                       <button
                         type="submit"
