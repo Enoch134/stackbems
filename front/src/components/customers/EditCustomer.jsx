@@ -61,7 +61,7 @@ useEffect(() => {
 }, [id]);
 
 
-    useEffect(() => {
+   useEffect(() => {
      getAllBusiness();
    }, []);
 
