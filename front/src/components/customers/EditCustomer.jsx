@@ -121,7 +121,7 @@ useEffect(() => {
   return (
     <>
        <section className="flex items-center justify-center h-screen bg-cover bg-center bg-opacity-100">
-        <form onSubmit={saveCustomer}>
+        <form onSubmit={updateCustomer}>
           <div class="min-h-screen py-6 flex flex-col justify-center sm:py-11">
             <div class="relative py-3 sm:max-w-xl sm:mx-auto">
               <div class="relative px-4 py-2 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
