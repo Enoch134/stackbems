@@ -120,8 +120,8 @@ useEffect(() => {
   const logourl = "/assets/cjlogo.png";
   return (
     <>
-      <section className="flex items-center justify-center h-screen bg-cover bg-center bg-opacity-100">
-        <form onSubmit={updateCustomer}>
+       <section className="flex items-center justify-center h-screen bg-cover bg-center bg-opacity-100">
+        <form onSubmit={saveCustomer}>
           <div class="min-h-screen py-6 flex flex-col justify-center sm:py-11">
             <div class="relative py-3 sm:max-w-xl sm:mx-auto">
               <div class="relative px-4 py-2 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
@@ -134,9 +134,9 @@ useEffect(() => {
                       style={{ maxWidth: "30%", height: "auto" }}
                     />
                     <Typography variant="h5" className="font-bold  text-black">
-                      Update Customer
+                      Create Customer
                     </Typography>
-                    <p className="text-red-600">{ msg}</p>
+                    <p className="text-red-600">{msg}</p>
                   </div>
                   <div class="divide-y divide-gray-200">
                     <div class="flex items-center space-x-2">
@@ -212,6 +212,7 @@ useEffect(() => {
                             </option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
+                          
                           </select>
                         </div>
                       </div>
@@ -227,12 +228,11 @@ useEffect(() => {
                       </div>
                     </div>
 
-
                       <div className="flex flex-col">
                           <label className="leading-loose">Gender</label>
                           <select
-                             value={businessId}
-                             onChange={(e) => setBusinessId(e.target.value)}
+                           value={businessId}
+                            onChange={(e) => setBusinessId(e.target.value)}
                             className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
                           >
                             <option value="">business</option>
@@ -242,12 +242,11 @@ useEffect(() => {
                                value={allBusiness.id}
                               >
                               {allBusiness.name}
-                              </option>
-                              ))}
+                               </option>
+                               ))}
                           </select>
                         </div>
-                      </div>
-                  
+                    
                     <div class="pt-4 flex items-center space-x-2">
                       <button
                         type="submit"
